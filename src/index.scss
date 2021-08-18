@@ -1,0 +1,34 @@
+#piano {
+  display: flex;
+  margin: 10px;
+}
+
+:root {
+  --white-key-width: 70px;
+  --white-key-height: calc(var(--white-key-width) / 0.175);
+  --black-key-width: calc(var(--white-key-width) / 1.71);
+  --black-key-height: calc(var(--white-key-height) / 1.56);
+}
+.key {
+  color: rgba(255, 255, 255, 0);
+  border: 5px solid black;
+  border-radius: 10px;
+  &:active {
+    background-color: rgba(0, 0, 0, 0.219);
+  }
+}
+
+.white {
+  height: 170px;
+  width: 50px;
+  background-color: white;
+}
+
+.black {
+  height: 100px;
+  width: 40px;
+  background-color: black;
+  margin-left: calc(var(--black-key-width) / -2);
+  margin-right: calc(var(--black-key-width) / -2);
+  z-index: 2;
+}
