@@ -1,8 +1,13 @@
 import React from "react";
+import * as Tone from "tone";
 
-export function Piano({ playNote }) {
+export function Piano({ playNote, noteEl }) {
+  const oscOne = new Tone.Synth({
+    oscillator: { type: "sine" },
+  }).toDestination();
   const handleClick = (e) => {
-    playNote(e.target.value);
+    console.log(e.target.value);
+    // oscOne.triggerAttackRelease(noteEl, "8n");
   };
   return (
     <>
@@ -11,6 +16,7 @@ export function Piano({ playNote }) {
           class="key white"
           type="button"
           value="c3"
+          ref={noteEl}
           onClick={handleClick}
         ></input>
         <input
